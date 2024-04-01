@@ -1,0 +1,242 @@
+/* Browser Settings */
+#browser {
+    --addressBarPaddingRight: 0px;
+    --addressBarPaddingLeft: 100px;
+    --headerElementsHeight: 34px;
+    /* Uncomment the line below to unify tab bar color with the address bar and bookmark bar */
+    --unified: transparent;
+    --backgroundColor: var(--unified, var(--colorBg));
+    --backgroundColorAccent: var(--unified, var(--colorAccentBg));
+    /* Uncomment the line below to remove the drag region on the bookmark bar and tab bar */
+    --allowWindowDrag: 1;
+}
+/* Top Address Bar */
+#browser.tabs-top.address-top #header {
+    padding-top: 36px;
+}
+/* Mainbar Positioning */
+#main {
+    overflow: unset;
+    position: unset;
+}
+.mainbar {
+    position: absolute;
+    top: 0;
+    left: var(--addressBarPaddingLeft);
+    width: calc(100% - var(--addressBarPaddingLeft) - var(--addressBarPaddingRight));
+    z-index: 2 !important;
+}
+/* Vivaldi Button and Win Controls */
+#browser.tabs-top #header {
+    backdrop-filter: unset;
+    contain: unset;
+}
+#browser.tabs-top.address-top #main {
+    overflow: visible;
+}
+/* Tabs Settings */
+#browser.tabs-top.address-top #tabs-tabbar-container.top > #tabs-container,
+#browser.tabs-top.address-top #tabs-tabbar-container.top > #tabs-subcontainer {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+/* Bookmark Bar */
+#browser.tabs-top.address-top.bookmark-bar-top #header {
+    padding-top: 65px;
+}
+#browser.tabs-top.address-top.bookmark-bar-top .bookmark-bar {
+    position: fixed;
+    top: 34px;
+    left: 0;
+    right: 0;
+}
+#browser.tabs-top.address-top.bookmark-bar-top.maximized:not(.tabs-at-edge) .bookmark-bar {
+    top: 41px;
+}
+.color-behind-tabs-off .bookmark-bar,
+.color-behind-tabs-off .bookmark-bar button {
+    background-color: var(--backgroundColorAccent);
+}
+.color-behind-tabs-on .bookmark-bar,
+.color-behind-tabs-on .bookmark-bar button {
+    background-color: var(--backgroundColor);
+}
+.bookmark-bar {
+    border-color: var(--unified, var(--colorAccentBgDark)) !important;
+}
+/* Horizontal Menu */
+#browser.tabs-top.address-top.horizontal-menu #header {
+    --headerElementsHeight: 24px;
+}
+#browser.tabs-top.address-top.horizontal-menu .window-buttongroup {
+    background-color: var(--colorTabBar);
+}
+#browser.tabs-top.address-top.horizontal-menu #header {
+    padding-top: 38px !important;
+}
+#browser.tabs-top.address-top.horizontal-menu .topmenu {
+    transform: translateY(-38px);
+    margin-bottom: 0;
+    color: var(--colorFg);
+}
+#browser.tabs-top.address-top.horizontal-menu #tabs-tabbar-container {
+    padding-top: 0;
+}
+#browser.tabs-top.address-top.horizontal-menu .mainbar {
+    left: 0;
+    width: 100%;
+    transform: translateY(24px);
+}
+/* Bookmark Bar & Horizontal Menu */
+#browser.tabs-top.address-top.horizontal-menu.bookmark-bar-top #header {
+    padding-top: 65px !important;
+}
+#browser.tabs-top.address-top.horizontal-menu.bookmark-bar-top .topmenu {
+    transform: translateY(-65px);
+}
+#browser.tabs-top.address-top.horizontal-menu.bookmark-bar-top .bookmark-bar {
+    top: 58px !important;
+}
+/* Window Action Buttons */
+.window-buttongroup button.window-minimize,
+.window-buttongroup button.window-maximize,
+.window-buttongroup button.window-close {
+    height: var(--headerElementsHeight) !important;
+}
+#titlebar button.vivaldi {
+    height: var(--headerElementsHeight) !important;
+    padding-top: 0;
+}
+/* Tabs Adjustment */
+#tabs-tabbar-container.top {
+    padding-top: unset !important;
+}
+/* Title Bar Elements */
+#titlebar button.vivaldi,
+.window-buttongroup {
+    background-color: var(--backgroundColor);
+}
+.color-behind-tabs-off #titlebar button.vivaldi,
+.color-behind-tabs-off .window-buttongroup {
+    background-color: var(--backgroundColorAccent);
+}
+.mainbar > .toolbar-mainbar {
+    background-color: var(--backgroundColor);
+}
+.color-behind-tabs-off .toolbar-mainbar {
+    background-color: var(--backgroundColorAccent);
+}
+/* Z-Index Fix */
+#tabs-tabbar-container.top {
+    z-index: 0;
+}
+/* Address Bar and Extensions Bar */
+.address-top .mainbar {
+    border-bottom: unset;
+}
+/* Extension Popup Adjustment */
+.extension-popup.top {
+    margin-top: calc(var(--allowWindowDrag) * 29px);
+}
+#browser.tabs-top.address-top.horizontal-menu .extension-popup.top {
+    margin-top: calc(var(--allowWindowDrag, -3.43) * 7px);
+}
+#browser.tabs-top.address-top.bookmark-bar-top .extension-popup.top {
+    margin-top: calc(var(--allowWindowDrag) * 58px);
+}
+#browser.tabs-top.address-top.bookmark-bar-top.horizontal-menu .extension-popup.top {
+    margin-top: calc(var(--allowWindowDrag, -0.71) * 34px);
+}
+/* App Region */
+#tabs-tabbar-container,
+.bookmark-bar {
+    app-region: var(--allowWindowDrag, no-drag);
+}
+/* Unified Color Fix */
+.color-behind-tabs-off.address-top .mainbar {
+    background-color: var(--backgroundColorAccent);
+}
+.color-behind-tabs-on.address-top .mainbar {
+    background-color: var(--backgroundColor);
+}
+/* Menu Button Adjustment */
+.vivaldi {
+    margin-top: unset;
+}
+/* macOS Browser Style Adjustment */
+/* Hides Vivaldi Menu Bar */
+button.vivaldi {
+    display: none;
+}
+/* Windows Headerbar */
+.window-buttongroup {
+    height: 35px !important;
+    left: 5px;
+    z-index: 1;
+}
+button.window-close {
+    position: fixed !important;
+    width: 25px !important;
+    z-index: 1;
+}
+button.window-maximize {
+    position: fixed;
+    left: 30px !important;
+    width: 25px !important;
+    z-index: 1;
+}
+button.window-minimize {
+    position: fixed;
+    left: 60px;
+    width: 25px !important;
+    z-index: 1;
+}
+/*close hover*/
+#browser.win .window-buttongroup button.window-close {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg%3E%3Cg transform='translate(-4 -1032.4)' fill-rule='evenodd' id='1711557189469-4772008_titlebutton-close'%3E%3Cpath d='m12 1047.4c3.8659 0 6.9999-3.134 6.9999-7s-3.134-7-6.9999-7c-3.866 0-7.0001 3.134-7.0001 7s3.134 7 7.0001 7' fill='%23cb4e43'%3E%3C/path%3E%3Cpath d='m12 1046.9c3.5898 0 6.4999-2.9103 6.4999-6.5001 0-3.5899-2.9102-6.5-6.4999-6.5-3.5899 0-6.5001 2.9101-6.5001 6.5 0 3.5898 2.9102 6.5001 6.5001 6.5001' fill='%23fe6254'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    fill: transparent;
+    border: 0;
+    padding: 0;
+
+}
+#browser.win .window-buttongroup button.window-close:hover {
+    fill: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg%3E%3Cg transform='translate(-322 -580.52) scale(3.7795)'%3E%3Cg fill-rule='evenodd' transform='translate(83.23 -198.212) scale(.34018)'%3E%3Cpath d='m12.003 1046.6c3.4364 0 6.2222-2.7858 6.2222-6.2222 0-3.4365-2.7858-6.2223-6.2222-6.2223-3.4365 0-6.2223 2.7858-6.2223 6.2223 0 3.4364 2.7858 6.2222 6.2223 6.2222' fill='%23cb4e43' stroke-width='.889'%3E%3C/path%3E%3Cpath d='m12.003 1046.2c3.2216 0 5.8333-2.6118 5.8333-5.8334 0-3.2218-2.6117-5.8335-5.8333-5.8335-3.2218 0-5.8334 2.6117-5.8334 5.8335 0 3.2216 2.6117 5.8334 5.8334 5.8334' fill='%23fe6254' stroke-width='.882'%3E%3C/path%3E%3C/g%3E%3Cpath d='m86.564 154.96c-0.10365 0.10364-0.10365 0.27051 0 0.37417l0.37417 0.37418-0.37417 0.37417c-0.10365 0.10366-0.10365 0.27054 0 0.37417 0.10364 0.10367 0.27053 0.10367 0.37417 0l0.37418-0.37417 0.37418 0.37417c0.10364 0.10367 0.27053 0.10367 0.37417 0 0.10365-0.10363 0.10365-0.27051 0-0.37417l-0.37417-0.37417 0.37417-0.37418c0.10365-0.10366 0.10365-0.27053 0-0.37417-0.10364-0.10367-0.27053-0.10367-0.37417 0l-0.37418 0.37417-0.37418-0.37417c-0.10364-0.10367-0.27053-0.10367-0.37417 0z' opacity='.5'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-color: transparent;
+}
+/*maximize hover*/
+#browser.win .window-buttongroup button.window-maximize {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg%3E%3Cg transform='translate(-4 -1032.4)' fill-rule='evenodd' id='1711557189470-9838936_titlebutton-maximize'%3E%3Cpath d='m12 1047.4c3.8659 0 6.9999-3.134 6.9999-7s-3.134-7-6.9999-7c-3.866 0-7.0001 3.134-7.0001 7s3.134 7 7.0001 7' fill='%2320a932'%3E%3C/path%3E%3Cpath d='m12 1046.9c3.5898 0 6.4999-2.9103 6.4999-6.5001 0-3.5899-2.9102-6.5-6.4999-6.5-3.5899 0-6.5001 2.9101-6.5001 6.5 0 3.5898 2.9102 6.5001 6.5001 6.5001' fill='%2328d33f'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    fill: transparent;
+    border: 0;
+    padding: 0;
+}
+#browser.win .window-buttongroup button.window-maximize:hover {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg%3E%3Cg transform='matrix(3.7795 0 0 3.7796 -296 -586.55)'%3E%3Cg transform='translate(-11.906 31.221)' fill-rule='evenodd'%3E%3Cpath d='m92.339 128.2c1.169 0 2.1166-0.94765 2.1166-2.1166 0-1.169-0.94765-2.1166-2.1166-2.1166-1.169 0-2.1167 0.94766-2.1167 2.1166 0 1.169 0.94765 2.1166 2.1167 2.1166' fill='%2320a932' stroke-width='.889'%3E%3C/path%3E%3Cpath d='m92.339 128.06c1.0959 0 1.9843-0.8885 1.9843-1.9844 0-1.0959-0.88845-1.9844-1.9843-1.9844-1.096 0-1.9844 0.88842-1.9844 1.9844 0 1.0958 0.88845 1.9844 1.9844 1.9844' fill='%2328d33f' stroke-width='.882'%3E%3C/path%3E%3C/g%3E%3Cpath d='m80.014 156.51 1.2134 1.2134v-0.94877c0-0.10994-0.15465-0.26458-0.26459-0.26458zm-0.37413 0.37414v0.94877c0 0.10994 0.15464 0.26459 0.26458 0.26459h0.94878z' opacity='.5'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    fill: transparent;
+    background-color: transparent;
+}
+/*minimize hover*/
+#browser.win .window-buttongroup button.window-minimize {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg%3E%3Cg transform='translate(-4 -1032.4)' fill-rule='evenodd' id='1711557189466-3777629_titlebutton-minimize'%3E%3Cpath d='m12 1047.4c3.8659 0 6.9999-3.134 6.9999-7s-3.134-7-6.9999-7c-3.866 0-7.0001 3.134-7.0001 7s3.134 7 7.0001 7' fill='%23caa124'%3E%3C/path%3E%3Cpath d='m12 1046.9c3.5898 0 6.4999-2.9103 6.4999-6.5001 0-3.5899-2.9102-6.5-6.4999-6.5-3.5899 0-6.5001 2.9101-6.5001 6.5 0 3.5898 2.9102 6.5001 6.5001 6.5001' fill='%23fdc92d'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    fill: transparent;
+    border: 0;
+    padding: 0;
+}
+#browser.win .window-buttongroup button.window-minimize:hover {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg%3E%3Cg transform='translate(-265 -585.52) scale(3.7795)'%3E%3Cg transform='translate(69.32 -118.57) scale(.26465)' fill-rule='evenodd'%3E%3Cpath d='m11.003 1049.4c4.4172 0 7.998-3.5808 7.998-7.998 0-4.4173-3.5809-7.9982-7.998-7.9982-4.4172 0-7.9981 3.5808-7.9981 7.9982 0 4.4171 3.5809 7.998 7.9981 7.998' fill='%23caa124' stroke-width='.889'%3E%3C/path%3E%3Cpath d='m11.003 1048.9c4.1411 0 7.4981-3.3573 7.4981-7.4983 0-4.1413-3.3571-7.4983-7.4981-7.4983-4.1412 0-7.4983 3.357-7.4983 7.4983 0 4.141 3.3571 7.4983 7.4983 7.4983' fill='%23fdc92d' stroke-width='.882'%3E%3C/path%3E%3C/g%3E%3Crect x='71.173' y='156.77' width='2.117' height='.529' ry='.265' opacity='.5'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    fill: transparent;
+    background-color: transparent;
+}
+
+
+
