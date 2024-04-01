@@ -237,6 +237,10 @@ button.window-minimize {
     fill: transparent;
     background-color: transparent;
 }
+/*adjust vivaldi settings pane*/
+.vivaldi-settings .settings-sidebar {
+    padding-top: 30px;
+}
 
 
 
